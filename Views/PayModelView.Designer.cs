@@ -60,9 +60,9 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label1);
-            panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(800, 102);
@@ -92,9 +92,9 @@
             // 
             // tabControl1
             // 
+            tabControl1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             tabControl1.Controls.Add(tabPageModeList);
             tabControl1.Controls.Add(tabPagePayModelDetail);
-            tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 102);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -121,6 +121,7 @@
             // 
             // btnClose
             // 
+            btnClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnClose.Image = Properties.Resources.cerrar;
             btnClose.Location = new Point(488, 230);
             btnClose.Name = "btnClose";
@@ -130,6 +131,7 @@
             // 
             // btnDelete
             // 
+            btnDelete.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnDelete.Image = Properties.Resources.delete;
             btnDelete.Location = new Point(488, 181);
             btnDelete.Name = "btnDelete";
@@ -140,6 +142,7 @@
             // 
             // btnEdit
             // 
+            btnEdit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnEdit.Image = Properties.Resources.edit;
             btnEdit.Location = new Point(488, 126);
             btnEdit.Name = "btnEdit";
@@ -149,6 +152,7 @@
             // 
             // btnNew
             // 
+            btnNew.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnNew.Image = Properties.Resources._new;
             btnNew.Location = new Point(488, 68);
             btnNew.Name = "btnNew";
@@ -160,6 +164,7 @@
             // 
             DgPayMode.AllowUserToAddRows = false;
             DgPayMode.AllowUserToDeleteRows = false;
+            DgPayMode.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             DgPayMode.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DgPayMode.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DgPayMode.Location = new Point(25, 68);
@@ -172,6 +177,7 @@
             // 
             // BtnSearch
             // 
+            BtnSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BtnSearch.Image = Properties.Resources.search_small;
             BtnSearch.Location = new Point(424, 19);
             BtnSearch.Name = "BtnSearch";
@@ -181,6 +187,7 @@
             // 
             // txtSearch
             // 
+            txtSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtSearch.Location = new Point(27, 30);
             txtSearch.Name = "txtSearch";
             txtSearch.PlaceholderText = "Data to Search";
@@ -303,6 +310,7 @@
             Controls.Add(panel1);
             Name = "PayModelView";
             Text = "Pay Mode Management";
+            Load += PayModelView_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
