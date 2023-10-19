@@ -103,5 +103,10 @@ namespace Supermarket__mvp.Views
         {
             DgPayMode.DataSource = payModeList;
         }
+
+        private void DgPayMode_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
