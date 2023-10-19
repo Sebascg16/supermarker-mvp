@@ -74,6 +74,7 @@
             pictureBox1.Location = new Point(31, 22);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(100, 64);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
@@ -159,6 +160,7 @@
             // 
             DgPayMode.AllowUserToAddRows = false;
             DgPayMode.AllowUserToDeleteRows = false;
+            DgPayMode.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DgPayMode.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DgPayMode.Location = new Point(25, 68);
             DgPayMode.Name = "DgPayMode";

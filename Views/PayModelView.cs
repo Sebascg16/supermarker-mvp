@@ -104,6 +104,24 @@ namespace Supermarket__mvp.Views
             DgPayMode.DataSource = payModeList;
         }
 
+        private static PayModelView instance;
+
+        public static PayModelView GetInstance()
+        {
+            if( instance == null || instance.IsDisposed)
+            {
+                instance = new PayModelView();
+            }
+            else
+            {
+                if (instance.WindowState == FormWindowState.Minimized)
+                {
+                    instance.WindowState = FormWindowState.Normal;
+                }
+                instance.BringToFront();
+            }
+            return instance;
+        }
         private void DgPayMode_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
