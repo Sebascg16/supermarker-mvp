@@ -158,6 +158,7 @@
             // 
             DgProduct.AllowUserToAddRows = false;
             DgProduct.AllowUserToDeleteRows = false;
+            DgProduct.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DgProduct.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DgProduct.Location = new Point(28, 73);
             DgProduct.Name = "DgProduct";
@@ -292,6 +293,7 @@
             Controls.Add(panel1);
             Name = "ProductView";
             Text = "Product Management";
+            WindowState = FormWindowState.Maximized;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

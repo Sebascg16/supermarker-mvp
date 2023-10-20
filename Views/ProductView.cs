@@ -90,6 +90,29 @@ namespace Supermarket__mvp.Views
             throw new NotImplementedException();
         }
 
+        private static ProductView instance;
+
+        public static ProductView GetInstance(Form parentContainer)
+
+        {
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new ProductView();
+                instance.MdiParent = parentContainer;
+
+                instance.FormBorderStyle = FormBorderStyle.None;
+                instance.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                if (instance.WindowState == FormWindowState.Minimized)
+                {
+                    instance.WindowState = FormWindowState.Normal;
+                }
+                instance.BringToFront();
+            }
+            return instance;
+        }
 
     }
 }
