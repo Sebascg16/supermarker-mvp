@@ -243,6 +243,7 @@
             BtnSave.Size = new Size(77, 46);
             BtnSave.TabIndex = 6;
             BtnSave.UseVisualStyleBackColor = false;
+            BtnSave.Click += BtnSave_Click;
             // 
             // TxtPayModeObservation
             // 
@@ -289,10 +290,10 @@
             // 
             txtPayModeId.Location = new Point(22, 40);
             txtPayModeId.Name = "txtPayModeId";
+            txtPayModeId.PlaceholderText = "0";
             txtPayModeId.ReadOnly = true;
             txtPayModeId.Size = new Size(143, 23);
             txtPayModeId.TabIndex = 1;
-            txtPayModeId.Text = "0";
             txtPayModeId.TextAlign = HorizontalAlignment.Right;
             // 
             // label3

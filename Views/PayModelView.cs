@@ -201,5 +201,10 @@ namespace Supermarket__mvp.Views
             CancelEvent?.Invoke(this, EventArgs.Empty);
             MessageBox.Show(Message);
         }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
