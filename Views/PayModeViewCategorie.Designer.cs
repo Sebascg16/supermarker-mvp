@@ -29,33 +29,33 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            label1 = new Label();
             pictureBox1 = new PictureBox();
+            label1 = new Label();
             tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
-            label2 = new Label();
-            txtSearchC = new TextBox();
-            btnSearchC = new Button();
-            DgPayModeC = new DataGridView();
-            btnNewC = new Button();
-            BtnEditC = new Button();
-            BtnDeleteC = new Button();
+            tabPageCategorieList = new TabPage();
             BtnCloseC = new Button();
-            label3 = new Label();
-            txtPayModeIdC = new TextBox();
-            label4 = new Label();
-            label5 = new Label();
-            TxtPayModeNameC = new TextBox();
-            TxtPayModeObservationC = new TextBox();
-            BtnSaveC = new Button();
+            BtnDeleteC = new Button();
+            BtnEditC = new Button();
+            btnNewC = new Button();
+            DgPayModeC = new DataGridView();
+            btnSearchC = new Button();
+            txtSearchC = new TextBox();
+            label2 = new Label();
+            tabPageCategorieDetail = new TabPage();
             BtnCancelC = new Button();
+            BtnSaveC = new Button();
+            TxtPayModeObservationC = new TextBox();
+            TxtPayModeNameC = new TextBox();
+            label5 = new Label();
+            label4 = new Label();
+            txtPayModeIdC = new TextBox();
+            label3 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabControl1.SuspendLayout();
-            tabPage1.SuspendLayout();
-            tabPage2.SuspendLayout();
+            tabPageCategorieList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DgPayModeC).BeginInit();
+            tabPageCategorieDetail.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -68,6 +68,16 @@
             panel1.Size = new Size(800, 100);
             panel1.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.InitialImage = Properties.Resources.categorias;
+            pictureBox1.Location = new Point(29, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(108, 68);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -79,20 +89,10 @@
             label1.Text = "CATEGORIE";
             label1.Click += label1_Click;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.InitialImage = Properties.Resources.categorias;
-            pictureBox1.Location = new Point(29, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(108, 68);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
-            // 
             // tabControl1
             // 
-            tabControl1.Controls.Add(tabPage1);
-            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Controls.Add(tabPageCategorieList);
+            tabControl1.Controls.Add(tabPageCategorieDetail);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 100);
             tabControl1.Name = "tabControl1";
@@ -100,68 +100,59 @@
             tabControl1.Size = new Size(800, 350);
             tabControl1.TabIndex = 1;
             // 
-            // tabPage1
+            // tabPageCategorieList
             // 
-            tabPage1.Controls.Add(BtnCloseC);
-            tabPage1.Controls.Add(BtnDeleteC);
-            tabPage1.Controls.Add(BtnEditC);
-            tabPage1.Controls.Add(btnNewC);
-            tabPage1.Controls.Add(DgPayModeC);
-            tabPage1.Controls.Add(btnSearchC);
-            tabPage1.Controls.Add(txtSearchC);
-            tabPage1.Controls.Add(label2);
-            tabPage1.Location = new Point(4, 24);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(792, 322);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "Categorie List";
-            tabPage1.UseVisualStyleBackColor = true;
+            tabPageCategorieList.Controls.Add(BtnCloseC);
+            tabPageCategorieList.Controls.Add(BtnDeleteC);
+            tabPageCategorieList.Controls.Add(BtnEditC);
+            tabPageCategorieList.Controls.Add(btnNewC);
+            tabPageCategorieList.Controls.Add(DgPayModeC);
+            tabPageCategorieList.Controls.Add(btnSearchC);
+            tabPageCategorieList.Controls.Add(txtSearchC);
+            tabPageCategorieList.Controls.Add(label2);
+            tabPageCategorieList.Location = new Point(4, 24);
+            tabPageCategorieList.Name = "tabPageCategorieList";
+            tabPageCategorieList.Padding = new Padding(3);
+            tabPageCategorieList.Size = new Size(792, 322);
+            tabPageCategorieList.TabIndex = 0;
+            tabPageCategorieList.Text = "Categorie List";
+            tabPageCategorieList.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // BtnCloseC
             // 
-            tabPage2.Controls.Add(BtnCancelC);
-            tabPage2.Controls.Add(BtnSaveC);
-            tabPage2.Controls.Add(TxtPayModeObservationC);
-            tabPage2.Controls.Add(TxtPayModeNameC);
-            tabPage2.Controls.Add(label5);
-            tabPage2.Controls.Add(label4);
-            tabPage2.Controls.Add(txtPayModeIdC);
-            tabPage2.Controls.Add(label3);
-            tabPage2.Location = new Point(4, 24);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(792, 322);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "Categorie Detail";
-            tabPage2.UseVisualStyleBackColor = true;
+            BtnCloseC.Image = Properties.Resources.cerrar;
+            BtnCloseC.Location = new Point(496, 238);
+            BtnCloseC.Name = "BtnCloseC";
+            BtnCloseC.Size = new Size(52, 44);
+            BtnCloseC.TabIndex = 7;
+            BtnCloseC.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // BtnDeleteC
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(25, 12);
-            label2.Name = "label2";
-            label2.Size = new Size(102, 15);
-            label2.TabIndex = 0;
-            label2.Text = "Search Categorie";
+            BtnDeleteC.Image = Properties.Resources.delete;
+            BtnDeleteC.Location = new Point(496, 180);
+            BtnDeleteC.Name = "BtnDeleteC";
+            BtnDeleteC.Size = new Size(52, 41);
+            BtnDeleteC.TabIndex = 6;
+            BtnDeleteC.UseVisualStyleBackColor = true;
             // 
-            // txtSearchC
+            // BtnEditC
             // 
-            txtSearchC.Location = new Point(27, 30);
-            txtSearchC.Name = "txtSearchC";
-            txtSearchC.PlaceholderText = "Data to Search";
-            txtSearchC.Size = new Size(386, 23);
-            txtSearchC.TabIndex = 1;
+            BtnEditC.Image = Properties.Resources.edit;
+            BtnEditC.Location = new Point(496, 125);
+            BtnEditC.Name = "BtnEditC";
+            BtnEditC.Size = new Size(52, 40);
+            BtnEditC.TabIndex = 5;
+            BtnEditC.UseVisualStyleBackColor = true;
             // 
-            // btnSearchC
+            // btnNewC
             // 
-            btnSearchC.Image = Properties.Resources.search_small;
-            btnSearchC.Location = new Point(419, 15);
-            btnSearchC.Name = "btnSearchC";
-            btnSearchC.Size = new Size(50, 51);
-            btnSearchC.TabIndex = 2;
-            btnSearchC.UseVisualStyleBackColor = true;
+            btnNewC.Image = Properties.Resources._new;
+            btnNewC.Location = new Point(496, 72);
+            btnNewC.Name = "btnNewC";
+            btnNewC.Size = new Size(52, 38);
+            btnNewC.TabIndex = 4;
+            btnNewC.UseVisualStyleBackColor = true;
             // 
             // DgPayModeC
             // 
@@ -176,69 +167,85 @@
             DgPayModeC.TabIndex = 3;
             DgPayModeC.CellContentClick += DgPayModeC_CellContentClick;
             // 
-            // btnNewC
+            // btnSearchC
             // 
-            btnNewC.Image = Properties.Resources._new;
-            btnNewC.Location = new Point(496, 72);
-            btnNewC.Name = "btnNewC";
-            btnNewC.Size = new Size(52, 38);
-            btnNewC.TabIndex = 4;
-            btnNewC.UseVisualStyleBackColor = true;
+            btnSearchC.Image = Properties.Resources.search_small;
+            btnSearchC.Location = new Point(419, 15);
+            btnSearchC.Name = "btnSearchC";
+            btnSearchC.Size = new Size(50, 51);
+            btnSearchC.TabIndex = 2;
+            btnSearchC.UseVisualStyleBackColor = true;
             // 
-            // BtnEditC
+            // txtSearchC
             // 
-            BtnEditC.Image = Properties.Resources.edit;
-            BtnEditC.Location = new Point(496, 125);
-            BtnEditC.Name = "BtnEditC";
-            BtnEditC.Size = new Size(52, 40);
-            BtnEditC.TabIndex = 5;
-            BtnEditC.UseVisualStyleBackColor = true;
+            txtSearchC.Location = new Point(27, 30);
+            txtSearchC.Name = "txtSearchC";
+            txtSearchC.PlaceholderText = "Data to Search";
+            txtSearchC.Size = new Size(386, 23);
+            txtSearchC.TabIndex = 1;
             // 
-            // BtnDeleteC
+            // label2
             // 
-            BtnDeleteC.Image = Properties.Resources.delete;
-            BtnDeleteC.Location = new Point(496, 180);
-            BtnDeleteC.Name = "BtnDeleteC";
-            BtnDeleteC.Size = new Size(52, 41);
-            BtnDeleteC.TabIndex = 6;
-            BtnDeleteC.UseVisualStyleBackColor = true;
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(25, 12);
+            label2.Name = "label2";
+            label2.Size = new Size(102, 15);
+            label2.TabIndex = 0;
+            label2.Text = "Search Categorie";
             // 
-            // BtnCloseC
+            // tabPageCategorieDetail
             // 
-            BtnCloseC.Image = Properties.Resources.cerrar;
-            BtnCloseC.Location = new Point(496, 238);
-            BtnCloseC.Name = "BtnCloseC";
-            BtnCloseC.Size = new Size(52, 44);
-            BtnCloseC.TabIndex = 7;
-            BtnCloseC.UseVisualStyleBackColor = true;
+            tabPageCategorieDetail.Controls.Add(BtnCancelC);
+            tabPageCategorieDetail.Controls.Add(BtnSaveC);
+            tabPageCategorieDetail.Controls.Add(TxtPayModeObservationC);
+            tabPageCategorieDetail.Controls.Add(TxtPayModeNameC);
+            tabPageCategorieDetail.Controls.Add(label5);
+            tabPageCategorieDetail.Controls.Add(label4);
+            tabPageCategorieDetail.Controls.Add(txtPayModeIdC);
+            tabPageCategorieDetail.Controls.Add(label3);
+            tabPageCategorieDetail.Location = new Point(4, 24);
+            tabPageCategorieDetail.Name = "tabPageCategorieDetail";
+            tabPageCategorieDetail.Padding = new Padding(3);
+            tabPageCategorieDetail.Size = new Size(792, 322);
+            tabPageCategorieDetail.TabIndex = 1;
+            tabPageCategorieDetail.Text = "Categorie Detail";
+            tabPageCategorieDetail.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // BtnCancelC
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(25, 15);
-            label3.Name = "label3";
-            label3.Size = new Size(75, 15);
-            label3.TabIndex = 0;
-            label3.Text = "Categorie Id";
+            BtnCancelC.Image = Properties.Resources.cancel;
+            BtnCancelC.Location = new Point(134, 252);
+            BtnCancelC.Name = "BtnCancelC";
+            BtnCancelC.Size = new Size(46, 49);
+            BtnCancelC.TabIndex = 7;
+            BtnCancelC.UseVisualStyleBackColor = true;
             // 
-            // txtPayModeIdC
+            // BtnSaveC
             // 
-            txtPayModeIdC.Location = new Point(30, 36);
-            txtPayModeIdC.Name = "txtPayModeIdC";
-            txtPayModeIdC.PlaceholderText = "0";
-            txtPayModeIdC.Size = new Size(195, 23);
-            txtPayModeIdC.TabIndex = 1;
+            BtnSaveC.Image = Properties.Resources.save;
+            BtnSaveC.Location = new Point(54, 252);
+            BtnSaveC.Name = "BtnSaveC";
+            BtnSaveC.Size = new Size(46, 49);
+            BtnSaveC.TabIndex = 6;
+            BtnSaveC.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // TxtPayModeObservationC
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(30, 75);
-            label4.Name = "label4";
-            label4.Size = new Size(97, 15);
-            label4.TabIndex = 2;
-            label4.Text = "Categorie Name";
+            TxtPayModeObservationC.Location = new Point(30, 160);
+            TxtPayModeObservationC.Multiline = true;
+            TxtPayModeObservationC.Name = "TxtPayModeObservationC";
+            TxtPayModeObservationC.PlaceholderText = "Categorie Observation";
+            TxtPayModeObservationC.Size = new Size(270, 86);
+            TxtPayModeObservationC.TabIndex = 5;
+            // 
+            // TxtPayModeNameC
+            // 
+            TxtPayModeNameC.Location = new Point(30, 93);
+            TxtPayModeNameC.Name = "TxtPayModeNameC";
+            TxtPayModeNameC.PlaceholderText = "Categorie Name";
+            TxtPayModeNameC.Size = new Size(279, 23);
+            TxtPayModeNameC.TabIndex = 4;
             // 
             // label5
             // 
@@ -250,40 +257,33 @@
             label5.TabIndex = 3;
             label5.Text = "Categorie Observation";
             // 
-            // TxtPayModeNameC
+            // label4
             // 
-            TxtPayModeNameC.Location = new Point(30, 93);
-            TxtPayModeNameC.Name = "TxtPayModeNameC";
-            TxtPayModeNameC.PlaceholderText = "Categorie Name";
-            TxtPayModeNameC.Size = new Size(279, 23);
-            TxtPayModeNameC.TabIndex = 4;
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(30, 75);
+            label4.Name = "label4";
+            label4.Size = new Size(97, 15);
+            label4.TabIndex = 2;
+            label4.Text = "Categorie Name";
             // 
-            // TxtPayModeObservationC
+            // txtPayModeIdC
             // 
-            TxtPayModeObservationC.Location = new Point(30, 160);
-            TxtPayModeObservationC.Multiline = true;
-            TxtPayModeObservationC.Name = "TxtPayModeObservationC";
-            TxtPayModeObservationC.PlaceholderText = "Categorie Observation";
-            TxtPayModeObservationC.Size = new Size(270, 86);
-            TxtPayModeObservationC.TabIndex = 5;
+            txtPayModeIdC.Location = new Point(30, 36);
+            txtPayModeIdC.Name = "txtPayModeIdC";
+            txtPayModeIdC.PlaceholderText = "0";
+            txtPayModeIdC.Size = new Size(195, 23);
+            txtPayModeIdC.TabIndex = 1;
             // 
-            // BtnSaveC
+            // label3
             // 
-            BtnSaveC.Image = Properties.Resources.save;
-            BtnSaveC.Location = new Point(54, 252);
-            BtnSaveC.Name = "BtnSaveC";
-            BtnSaveC.Size = new Size(46, 49);
-            BtnSaveC.TabIndex = 6;
-            BtnSaveC.UseVisualStyleBackColor = true;
-            // 
-            // BtnCancelC
-            // 
-            BtnCancelC.Image = Properties.Resources.cancel;
-            BtnCancelC.Location = new Point(134, 252);
-            BtnCancelC.Name = "BtnCancelC";
-            BtnCancelC.Size = new Size(46, 49);
-            BtnCancelC.TabIndex = 7;
-            BtnCancelC.UseVisualStyleBackColor = true;
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(25, 15);
+            label3.Name = "label3";
+            label3.Size = new Size(75, 15);
+            label3.TabIndex = 0;
+            label3.Text = "Categorie Id";
             // 
             // PayModeViewCategorie
             // 
@@ -298,11 +298,11 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             tabControl1.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
-            tabPage1.PerformLayout();
-            tabPage2.ResumeLayout(false);
-            tabPage2.PerformLayout();
+            tabPageCategorieList.ResumeLayout(false);
+            tabPageCategorieList.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)DgPayModeC).EndInit();
+            tabPageCategorieDetail.ResumeLayout(false);
+            tabPageCategorieDetail.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -312,10 +312,10 @@
         private Label label1;
         private PictureBox pictureBox1;
         private TabControl tabControl1;
-        private TabPage tabPage1;
+        private TabPage tabPage;
         private TextBox txtSearchC;
         private Label label2;
-        private TabPage tabPage2;
+        private TabPage tabPageCategorieDetail;
         private DataGridView DgPayModeC;
         private Button btnSearchC;
         private Button BtnCloseC;
@@ -330,5 +330,6 @@
         private Label label3;
         private Button BtnCancelC;
         private Button BtnSaveC;
+        private TabPage tabPageCategorieList;
     }
 }
