@@ -80,7 +80,17 @@ namespace Supermarket__mvp.Views
                         SearchEvent?.Invoke(this, EventArgs.Empty);
                     }
                 };
+            btnNewC.Click += delegate { 
+                AddNewEvent?.Invoke(this, EventArgs.Empty);
 
+                tabControl1.TabPages.Remove(tabPageCategorieList);
+                tabControl1.TabPages.Add(tabPageCategorieDetail);
+                tabPageCategorieDetail.Text = "Add new Categorie";
+            };
+            BtnEditC.Click += delegate { EditEvent?.Invoke(this, EventArgs.Empty); };
+            BtnDeleteC.Click += delegate { DeleteEvent?.Invoke(this, EventArgs.Empty); };
+            BtnSaveC.Click += delegate { SaveEvent?.Invoke(this, EventArgs.Empty); };
+            BtnCancelC.Click += delegate { CancelEvent?.Invoke(this, EventArgs.Empty); };
         }
 
         public event EventHandler SearchEvent;
@@ -126,6 +136,11 @@ namespace Supermarket__mvp.Views
                 instance.BringToFront();
             }
             return instance;
+        }
+
+        public void SetCategorieListBildingSource(BindingSource categorieList)
+        {
+            DgPayModeC.DataSource = categorieList;
         }
     }
 }

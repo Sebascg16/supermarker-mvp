@@ -12,12 +12,12 @@ namespace Supermarket__mvp.Presenters
     {
         private ICategorie view;
         private IRepositoryCategorie repository;
-        private BindingSource payModeBindingSource;
-        private IEnumerable<ModeModelCategorie> payModeList;
+        private BindingSource categorieBindingSource;
+        private IEnumerable<ModelCategorie> categorieList;
 
         public PresenterCategorie(ICategorie view, IRepositoryCategorie repository)
         {
-            this.payModeBindingSource = new BindingSource();
+            this.categorieBindingSource = new BindingSource();
 
             this.view = view;
             this.repository = repository;
@@ -29,7 +29,8 @@ namespace Supermarket__mvp.Presenters
             this.view.SaveEvent += SavePayMode;
             this.view.CancelEvent += CancelAction;
 
-            this.view.SetPayModeListBildingSource(payModeBindingSource);
+            this.view.SetCategorieListBildingSource(categorieBindingSource);
+;
 
             loadAllPayModeList();
 
@@ -38,8 +39,8 @@ namespace Supermarket__mvp.Presenters
 
         private void loadAllPayModeList()
         {
-            payModeList = repository.GetAll();
-            payModeBindingSource.DataSource = payModeList;
+            categorieList = repository.GetAll();
+            categorieBindingSource.DataSource = categorieList;
         }
 
         private void CancelAction(object? sender, EventArgs e)
@@ -64,7 +65,7 @@ namespace Supermarket__mvp.Presenters
 
         private void AddNewPayMode(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            MessageBox.Show("Hizo click en el boton nuevo");
         }
 
         private void SearchPayMode(object? sender, EventArgs e)
@@ -72,13 +73,13 @@ namespace Supermarket__mvp.Presenters
             bool emptyValue = string.IsNullOrWhiteSpace(this.view.SearchValue);
             if (emptyValue == false)
             {
-                payModeList = repository.GetByValue(this.view.SearchValue);
+                categorieList = repository.GetByValue(this.view.SearchValue);
             }
             else
             {
-                payModeList = repository.GetAll();
+                categorieList = repository.GetAll();
             }
-            payModeBindingSource.DataSource = payModeList;
+            categorieBindingSource.DataSource = categorieList;
         }
     }
 

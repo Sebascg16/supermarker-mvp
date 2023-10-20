@@ -8,12 +8,12 @@ namespace Supermarket__mvp.Models
 {
     internal interface IRepositoryCategorie
     {
-        void Add(ModeModelCategorie payModeModelCategorie);
-        void Edit(ModeModelCategorie payModeModelCategorie);
+        void Add(ModelCategorie payModeModelCategorie);
+        void Edit(ModelCategorie payModeModelCategorie);
         void Delete(int id);
 
-        IEnumerable<ModeModelCategorie> GetAll();
-        IEnumerable<ModeModelCategorie> GetByValue(string value);
+        IEnumerable<ModelCategorie> GetAll();
+        IEnumerable<ModelCategorie> GetByValue(string value);
 
 
     }
