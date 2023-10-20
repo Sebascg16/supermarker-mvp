@@ -29,15 +29,17 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            btnCategorie = new Button();
+            BtnExit = new Button();
             BtnPayMode = new Button();
             pictureBox1 = new PictureBox();
-            BtnExit = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Controls.Add(btnCategorie);
             panel1.Controls.Add(BtnExit);
             panel1.Controls.Add(BtnPayMode);
             panel1.Controls.Add(pictureBox1);
@@ -46,6 +48,27 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(200, 450);
             panel1.TabIndex = 0;
+            // 
+            // btnCategorie
+            // 
+            btnCategorie.BackgroundImage = Properties.Resources.categorias;
+            btnCategorie.BackgroundImageLayout = ImageLayout.Zoom;
+            btnCategorie.Location = new Point(3, 194);
+            btnCategorie.Name = "btnCategorie";
+            btnCategorie.Size = new Size(194, 75);
+            btnCategorie.TabIndex = 3;
+            btnCategorie.UseVisualStyleBackColor = true;
+            // 
+            // BtnExit
+            // 
+            BtnExit.BackgroundImage = Properties.Resources.salida;
+            BtnExit.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnExit.Dock = DockStyle.Bottom;
+            BtnExit.Location = new Point(0, 361);
+            BtnExit.Name = "BtnExit";
+            BtnExit.Size = new Size(200, 89);
+            BtnExit.TabIndex = 2;
+            BtnExit.UseVisualStyleBackColor = true;
             // 
             // BtnPayMode
             // 
@@ -66,17 +89,6 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-            // 
-            // BtnExit
-            // 
-            BtnExit.BackgroundImage = Properties.Resources.salida;
-            BtnExit.BackgroundImageLayout = ImageLayout.Zoom;
-            BtnExit.Dock = DockStyle.Bottom;
-            BtnExit.Location = new Point(0, 361);
-            BtnExit.Name = "BtnExit";
-            BtnExit.Size = new Size(200, 89);
-            BtnExit.TabIndex = 2;
-            BtnExit.UseVisualStyleBackColor = true;
             // 
             // MainView
             // 
@@ -100,5 +112,6 @@
         private PictureBox pictureBox1;
         private Button BtnPayMode;
         private Button BtnExit;
+        private Button btnCategorie;
     }
 }

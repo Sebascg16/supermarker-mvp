@@ -1,6 +1,6 @@
 ﻿namespace Supermarket__mvp.Views
 {
-    partial class PayModeViewCategorie
+    partial class ViewCategorie
     {
         /// <summary>
         /// Required designer variable.
@@ -70,7 +70,8 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.InitialImage = Properties.Resources.categorias;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.InitialImage = null;
             pictureBox1.Location = new Point(29, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(108, 68);
@@ -158,6 +159,7 @@
             // 
             DgPayModeC.AllowUserToAddRows = false;
             DgPayModeC.AllowUserToDeleteRows = false;
+            DgPayModeC.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             DgPayModeC.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DgPayModeC.Location = new Point(25, 72);
             DgPayModeC.Name = "DgPayModeC";
@@ -178,6 +180,7 @@
             // 
             // txtSearchC
             // 
+            txtSearchC.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtSearchC.Location = new Point(27, 30);
             txtSearchC.Name = "txtSearchC";
             txtSearchC.PlaceholderText = "Data to Search";
@@ -285,14 +288,14 @@
             label3.TabIndex = 0;
             label3.Text = "Categorie Id";
             // 
-            // PayModeViewCategorie
+            // ViewCategorie
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(tabControl1);
             Controls.Add(panel1);
-            Name = "PayModeViewCategorie";
+            Name = "ViewCategorie";
             Text = "Categorie Management";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

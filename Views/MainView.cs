@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,13 +17,20 @@ namespace Supermarket__mvp.Views
         {
             InitializeComponent();
             BtnPayMode.Click += delegate { ShowPayModeView?.Invoke(this, EventArgs.Empty); };
+            btnCategorie.Click += delegate { ShowViewCategorie?.Invoke(this, EventArgs.Empty); };
 
-            BtnExit.Click += delegate { this.Close(); }; 
+            BtnExit.Click += delegate { this.Close(); };
         }
 
         public event EventHandler ShowPayModeView;
         public event EventHandler ShowProductView;
         public event EventHandler ShowCustomerView;
+
+        public event EventHandler ShowViewCategorie;
+        public event EventHandler ShowProductViewCategorie;
+        public event EventHandler ShowCustomerViewCategorie;
+
+
 
         private void MainView_Load(object sender, EventArgs e)
         {

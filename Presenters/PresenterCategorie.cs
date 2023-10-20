@@ -8,14 +8,14 @@ using Supermarket__mvp.Models;
 
 namespace Supermarket__mvp.Presenters
 {
-    internal class PayModePresenterCategorie
+    internal class PresenterCategorie
     {
-        private IPayModeViewCategorie view;
-        private IPayModeRepositoryCategorie repository;
+        private ICategorie view;
+        private IRepositoryCategorie repository;
         private BindingSource payModeBindingSource;
-        private IEnumerable<PayModeModelCategorie> payModeList;
+        private IEnumerable<ModeModelCategorie> payModeList;
 
-        public PayModePresenterCategorie(IPayModeViewCategorie view, IPayModeRepositoryCategorie repository)
+        public PresenterCategorie(ICategorie view, IRepositoryCategorie repository)
         {
             this.payModeBindingSource = new BindingSource();
 

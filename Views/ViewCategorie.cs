@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Supermarket__mvp.Views
 {
-    public partial class PayModeViewCategorie : Form, IPayModeViewCategorie
+    public partial class ViewCategorie : Form, ICategorie
     {
         private bool isEdit;
         private bool isSuccessful;
@@ -61,7 +61,7 @@ namespace Supermarket__mvp.Views
             set { Message = value; }
         }
 
-        public PayModeViewCategorie()
+        public ViewCategorie()
         {
             InitializeComponent();
             AssociateAndRaiseViewEvents();
@@ -103,6 +103,29 @@ namespace Supermarket__mvp.Views
         public void SetPayModeListBildingSource(BindingSource payModeList)
         {
             DgPayModeC.DataSource = payModeList;
+        }
+
+        private static ViewCategorie instance;
+
+        public static ViewCategorie GetInstance(Form parentContainer)
+        {
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new ViewCategorie();
+                instance.MdiParent = parentContainer;
+
+                instance.FormBorderStyle = FormBorderStyle.None;
+                instance.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                if (instance.WindowState == FormWindowState.Minimized)
+                {
+                    instance.WindowState = FormWindowState.Normal;
+                }
+                instance.BringToFront();
+            }
+            return instance;
         }
     }
 }

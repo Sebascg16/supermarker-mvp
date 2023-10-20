@@ -10,13 +10,13 @@ using System.Data;
 
 namespace Supermarket__mvp._Repositories
 {
-    internal class PayModeRepositoryCategorie : BaseRepository, IPayModeRepositoryCategorie
+    internal class RepositoryCategorie : BaseRepository, IRepositoryCategorie
     {
-        public PayModeRepositoryCategorie(string ConnectionString) 
+        public RepositoryCategorie(string ConnectionString) 
         {
             this.connectionString = ConnectionString;
         }
-        public void Add(PayModeModelCategorie payModeModelCategorie)
+        public void Add(ModeModelCategorie payModeModelCategorie)
         {
             throw new NotImplementedException();
         }
@@ -26,19 +26,19 @@ namespace Supermarket__mvp._Repositories
             throw new NotImplementedException();
         }
 
-        public void Edit(PayModeModelCategorie payModeModelCategorie)
+        public void Edit(ModeModelCategorie payModeModelCategorie)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<PayModeModelCategorie> GetAll()
+        public IEnumerable<ModeModelCategorie> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<PayModeModelCategorie> GetByValue(string value)
+        public IEnumerable<ModeModelCategorie> GetByValue(string value)
         {
-            var payModeList = new List <PayModeModelCategorie>();
+            var payModeList = new List <ModeModelCategorie>();
             using (var connection = new SqlConnection("Data Source=DESKTOP-012JM51;Initial Catalog=Supermarker;Integrated Security=True;TrustServerCertificate=True;"))
             using (var command = new SqlCommand())
             {
@@ -49,7 +49,7 @@ namespace Supermarket__mvp._Repositories
                 {
                     while (reader.Read())
                     {
-                        var PayModeModelCategorie = new PayModeModelCategorie();
+                        var PayModeModelCategorie = new ModeModelCategorie();
                         PayModeModelCategorie.Id = (int)reader["Pay_Mode_Categorie_Id"];
                         PayModeModelCategorie.Name = reader["Pay_Mode_Categorie_Name"].ToString();
                         PayModeModelCategorie.Observation = reader["Pay_Mode_Categorie_Observation"].ToString();
