@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Supermarket__mvp.Views;
 using Supermarket__mvp.Models;
 
+
+
 namespace Supermarket__mvp.Presenters
 {
     internal class PayModePresenter
@@ -46,27 +48,82 @@ namespace Supermarket__mvp.Presenters
 
         private void CancelAction(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            CleanViewFields();
         }
 
         private void SavePayMode(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var PayMode = new PayModeModel(); ;
+
+            PayMode.Id = Convert.ToInt32(view.PayModeId);
+            PayMode.Name = view.PayModeName;
+            PayMode.Observation = view.PayModeObservation;
+
+            try
+            {
+                new Common.ModelDataValidation().validate(PayMode);
+                if(view.IsEdit)
+                {
+                    repository.Edit(PayMode);
+                    view.Message = "Paymode edited successfuly";
+                }
+                else
+                {
+                    repository.Add(PayMode);
+                    view.Message = "Paymode added successfuly";
+                }
+            }
+            catch (Exception ex)
+            {
+                view.IsSuccessful = false;
+                loadAllPayModeList();
+                CleanViewFields();
+
+            }
+        }
+        private void CleanViewFields()
+        {
+            view.PayModeId = "0";
+            view.PayModeName = "";
+            view.PayModeObservation = "";
         }
 
         private void DeleteSelectedPayMode(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var payMode = (PayModeModel) payModeBindingSource.Current;
+
+                repository.Delete(payMode.Id);
+                view.IsSuccessful = true;
+                view.Message = "Pay Mode Deleted Successfully";
+                loadAllPayModeList();
+            }
+            catch (Exception ex)
+            {
+                view.IsSuccessful = false;
+                view.Message = "An error ocurred , could not delete pay mode";
+            }
         }
 
         private void LoadSelectPayModeToEdit(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var PayMode = (PayModeModel)payModeBindingSource.Current;
+
+            //Se cambia el contenido de las cajas de texto por el objeto recuperado del datagridview
+
+            view.PayModeId = PayMode.Id.ToString();
+            view.PayModeName = PayMode.Name;
+            view.PayModeObservation = PayMode.Observation;
+
+            //Se establece el modo edición
+
+            view.IsEdit = true;
         }
 
         private void AddNewPayMode(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            view.IsEdit = false;
         }
 
         private void SearchPayMode(object? sender, EventArgs e)
