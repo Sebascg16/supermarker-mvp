@@ -8,9 +8,9 @@ namespace Supermarket__mvp.Views
 {
     internal interface ICategorie
     {
-        string PayModeId { get; set; }
-        string PayModeName { get; set; }
-        string PayModeObservation { get; set; }
+        string CategorieId { get; set; }
+        string CategorieName { get; set; }
+        string CategorieObservation { get; set; }
 
         string SearchValue { get; set; }
         bool IsEdit { get; set; }

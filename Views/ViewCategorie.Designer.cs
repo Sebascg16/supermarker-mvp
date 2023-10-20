@@ -71,6 +71,7 @@
             // pictureBox1
             // 
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Image = Properties.Resources.categorias;
             pictureBox1.InitialImage = null;
             pictureBox1.Location = new Point(29, 12);
             pictureBox1.Name = "pictureBox1";
@@ -121,6 +122,7 @@
             // 
             // BtnCloseC
             // 
+            BtnCloseC.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BtnCloseC.Image = Properties.Resources.cerrar;
             BtnCloseC.Location = new Point(496, 238);
             BtnCloseC.Name = "BtnCloseC";
@@ -130,6 +132,7 @@
             // 
             // BtnDeleteC
             // 
+            BtnDeleteC.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BtnDeleteC.Image = Properties.Resources.delete;
             BtnDeleteC.Location = new Point(496, 180);
             BtnDeleteC.Name = "BtnDeleteC";
@@ -139,6 +142,7 @@
             // 
             // BtnEditC
             // 
+            BtnEditC.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BtnEditC.Image = Properties.Resources.edit;
             BtnEditC.Location = new Point(496, 125);
             BtnEditC.Name = "BtnEditC";
@@ -148,6 +152,7 @@
             // 
             // btnNewC
             // 
+            btnNewC.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnNewC.Image = Properties.Resources._new;
             btnNewC.Location = new Point(496, 72);
             btnNewC.Name = "btnNewC";
@@ -160,6 +165,7 @@
             DgPayModeC.AllowUserToAddRows = false;
             DgPayModeC.AllowUserToDeleteRows = false;
             DgPayModeC.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            DgPayModeC.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DgPayModeC.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DgPayModeC.Location = new Point(25, 72);
             DgPayModeC.Name = "DgPayModeC";
@@ -171,6 +177,7 @@
             // 
             // btnSearchC
             // 
+            btnSearchC.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnSearchC.Image = Properties.Resources.search_small;
             btnSearchC.Location = new Point(419, 15);
             btnSearchC.Name = "btnSearchC";

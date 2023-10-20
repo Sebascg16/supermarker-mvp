@@ -16,20 +16,20 @@ namespace Supermarket__mvp.Views
         private bool isEdit;
         private bool isSuccessful;
         private string message;
-        public string PayModeId
+        public string CategorieId
         {
             get { return txtPayModeIdC.Text; }
 
             set { txtPayModeIdC.Text = value; }
         }
-        public string PayModeName
+        public string CategorieName
         {
             get { return TxtPayModeNameC.Text; }
 
             set { TxtPayModeNameC.Text = value; }
         }
 
-        public string PayModeObservation
+        public string CategorieObservation
         {
             get { return TxtPayModeObservationC.Text; }
 
@@ -44,23 +44,24 @@ namespace Supermarket__mvp.Views
 
         public bool IsEdit
         {
-            get { return IsEdit; }
+            get { return isEdit; }
 
-            set { IsEdit = value; }
+            set { isEdit = value; }
         }
         public bool IsSuccessful
         {
-            get { return IsSuccessful; }
+            get { return isSuccessful; }
 
-            set { IsSuccessful = value; }
+            set { isSuccessful = value; }
         }
         public string Message
         {
-            get { return Message; }
+            get { return message; }
 
-            set { Message = value; }
+            set { message = value; }
         }
 
+  
         public ViewCategorie()
         {
             InitializeComponent();
@@ -80,17 +81,51 @@ namespace Supermarket__mvp.Views
                         SearchEvent?.Invoke(this, EventArgs.Empty);
                     }
                 };
-            btnNewC.Click += delegate { 
+            btnNewC.Click += delegate
+            {
                 AddNewEvent?.Invoke(this, EventArgs.Empty);
 
                 tabControl1.TabPages.Remove(tabPageCategorieList);
                 tabControl1.TabPages.Add(tabPageCategorieDetail);
                 tabPageCategorieDetail.Text = "Add new Categorie";
             };
-            BtnEditC.Click += delegate { EditEvent?.Invoke(this, EventArgs.Empty); };
-            BtnDeleteC.Click += delegate { DeleteEvent?.Invoke(this, EventArgs.Empty); };
-            BtnSaveC.Click += delegate { SaveEvent?.Invoke(this, EventArgs.Empty); };
-            BtnCancelC.Click += delegate { CancelEvent?.Invoke(this, EventArgs.Empty); };
+            BtnEditC.Click += delegate { 
+                EditEvent?.Invoke(this, EventArgs.Empty);
+                tabControl1.TabPages.Remove(tabPageCategorieList);
+                tabControl1.TabPages.Add(tabPageCategorieDetail);
+                tabPageCategorieDetail.Text = "Edit Categorie";
+            };
+
+            BtnDeleteC.Click += delegate {
+                DeleteEvent?.Invoke(this, EventArgs.Empty);
+                var result = MessageBox.Show(
+                    "Are you sure you want to delete the selected Categorie", "Warning");
+
+                if (result == DialogResult.Yes)
+                {
+                    DeleteEvent?.Invoke(this, EventArgs.Empty );
+                    MessageBox.Show(Message);
+                }
+            };
+
+            BtnSaveC.Click += delegate { 
+                SaveEvent?.Invoke(this, EventArgs.Empty); 
+            SaveEvent?.Invoke(this, EventArgs.Empty );
+
+                if (isSuccessful)
+                {
+                    tabControl1.TabPages.Remove(tabPageCategorieList);
+                    tabControl1.TabPages.Add(tabPageCategorieDetail);
+                }
+                MessageBox.Show(Message);
+            
+            };
+
+            BtnCancelC.Click += delegate {
+                CancelEvent?.Invoke(this, EventArgs.Empty);
+                tabControl1.TabPages.Remove(tabPageCategorieDetail);
+                tabControl1.TabPages.Add(tabPageCategorieList);
+            };
         }
 
         public event EventHandler SearchEvent;

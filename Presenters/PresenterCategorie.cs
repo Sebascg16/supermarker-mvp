@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Supermarket__mvp.Views;
 using Supermarket__mvp.Models;
+using Supermarket__mvp._Repositories;
 
 namespace Supermarket__mvp.Presenters
 {
@@ -22,22 +23,22 @@ namespace Supermarket__mvp.Presenters
             this.view = view;
             this.repository = repository;
 
-            this.view.SearchEvent += SearchPayMode;
-            this.view.AddNewEvent += AddNewPayMode;
-            this.view.EditEvent += LoadSelectPayModeToEdit;
-            this.view.DeleteEvent += DeleteSelectedPayMode;
-            this.view.SaveEvent += SavePayMode;
+            this.view.SearchEvent += SearchCategorie;
+            this.view.AddNewEvent += AddNewCategorie;
+            this.view.EditEvent += LoadSelectCategorieToEdit;
+            this.view.DeleteEvent += DeleteSelectedCategorie;
+            this.view.SaveEvent += SaveCategorie;
             this.view.CancelEvent += CancelAction;
 
             this.view.SetCategorieListBildingSource(categorieBindingSource);
 ;
 
-            loadAllPayModeList();
+            loadAllCategorieList();
 
             this.view.Show();
         }
 
-        private void loadAllPayModeList()
+        private void loadAllCategorieList()
         {
             categorieList = repository.GetAll();
             categorieBindingSource.DataSource = categorieList;
@@ -45,30 +46,77 @@ namespace Supermarket__mvp.Presenters
 
         private void CancelAction(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            CleanViewFields();
         }
 
-        private void SavePayMode(object? sender, EventArgs e)
+        private void SaveCategorie(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var categorie = new ModelCategorie();
+
+            categorie.Id = Convert.ToInt32(view.CategorieId);
+            categorie.Name = view.CategorieName;
+            categorie.Observation = view.CategorieObservation;
+
+            try
+            {
+                new Common.ModelDataValidation().validate(categorie);
+                if (view.IsEdit)
+                {
+                    repository.Edit(categorie);
+                    view.Message = "Categorie edited Successfuly";
+                }
+                else
+                {
+                    repository.Add(categorie);
+                    view.Message = "Categorie added successfuly";
+                }
+                view.IsSuccessful = true;
+                
+            }
+            catch (Exception ex)
+            {
+                view.IsSuccessful = false;
+                loadAllCategorieList();
+                CleanViewFields();
+            }
         }
 
-        private void DeleteSelectedPayMode(object? sender, EventArgs e)
+        private void DeleteSelectedCategorie(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var categorie = (ModelCategorie)categorieBindingSource.Current;
+
+                repository.Delete(categorie.Id);
+                view.IsSuccessful = true;
+                view.Message = "Categorie deleted successfully";
+                loadAllCategorieList();
+            }
+            catch 
+            {
+                view.IsSuccessful = false;
+                view.Message = "An error ocurred, could or delete categorie";
+            }
+
         }
 
-        private void LoadSelectPayModeToEdit(object? sender, EventArgs e)
+        private void LoadSelectCategorieToEdit(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var categorie = (ModelCategorie)categorieBindingSource.Current;
+            view.CategorieId = categorie.Id.ToString();
+            view.CategorieName = categorie.Name;
+            view.CategorieObservation = categorie.Observation;
+
+            view.IsEdit = true;
+            
         }
 
-        private void AddNewPayMode(object? sender, EventArgs e)
+        private void AddNewCategorie(object? sender, EventArgs e)
         {
-            MessageBox.Show("Hizo click en el boton nuevo");
+            view.IsEdit = false;
         }
 
-        private void SearchPayMode(object? sender, EventArgs e)
+        private void SearchCategorie(object? sender, EventArgs e)
         {
             bool emptyValue = string.IsNullOrWhiteSpace(this.view.SearchValue);
             if (emptyValue == false)
@@ -80,6 +128,13 @@ namespace Supermarket__mvp.Presenters
                 categorieList = repository.GetAll();
             }
             categorieBindingSource.DataSource = categorieList;
+        }
+
+        private void CleanViewFields()
+        {
+            view.CategorieId = "0";
+            view.CategorieName = "";
+            view.CategorieObservation = "";
         }
     }
 

@@ -16,19 +16,50 @@ namespace Supermarket__mvp._Repositories
         {
             this.connectionString = ConnectionString;
         }
-        public void Add(ModelCategorie payModeModelCategorie)
+        public void Add(ModelCategorie ModelCategorie)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection("Data Source=DESKTOP-012JM51;Initial Catalog=Supermarker;Integrated Security=True;TrustServerCertificate=True;"))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "INSERT INTO Categorie VALUES (@name, @observation";
+                command.Parameters.Add("@name", SqlDbType.NVarChar).Value = ModelCategorie.Name;
+                command.Parameters.Add("@observation", SqlDbType.NVarChar).Value = ModelCategorie.Observation;
+                command.ExecuteNonQuery();
+            }
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection("Data Source=DESKTOP-012JM51;Initial Catalog=Supermarker;Integrated Security=True;TrustServerCertificate=True;"))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "DELETE FROM Categorie WHERE Categorie_Id = @Id";
+                command.Parameters.Add("@Id", SqlDbType.Int).Value = id;
+                command.ExecuteNonQuery();
+            }
         }
 
-        public void Edit(ModelCategorie payModeModelCategorie)
+        public void Edit(ModelCategorie ModelCategorie)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection("Data Source=DESKTOP-012JM51;Initial Catalog=Supermarker;Integrated Security=True;TrustServerCertificate=True;"))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = @"UPDATE Categorie
+                                       SET Categorie_Name =@name,
+                                       Categorie_Observation = @observation
+                                       WHERE Categorie_Id = @Id";
+                
+                command.Parameters.Add("@name", SqlDbType.NVarChar).Value = ModelCategorie.Name;
+                command.Parameters.Add("@observation", SqlDbType.NVarChar).Value = ModelCategorie.Observation;
+                command.Parameters.Add("@Id", SqlDbType.NVarChar).Value = ModelCategorie.Id;
+                command.ExecuteNonQuery();
+            }
         }
 
         public IEnumerable<ModelCategorie> GetAll()

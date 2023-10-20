@@ -53,7 +53,7 @@
             // 
             btnCategorie.BackgroundImage = Properties.Resources.categorias;
             btnCategorie.BackgroundImageLayout = ImageLayout.Zoom;
-            btnCategorie.Location = new Point(3, 194);
+            btnCategorie.Location = new Point(3, 250);
             btnCategorie.Name = "btnCategorie";
             btnCategorie.Size = new Size(194, 75);
             btnCategorie.TabIndex = 3;
