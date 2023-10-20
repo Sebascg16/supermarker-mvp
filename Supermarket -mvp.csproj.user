@@ -7,6 +7,9 @@
     <Compile Update="Views\PayModelView.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\ProductView.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\ViewCategorie.cs">
       <SubType>Form</SubType>
     </Compile>
