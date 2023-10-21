@@ -33,7 +33,7 @@ namespace Supermarket__mvp.Presenters
 
             LoadAllProductLiST();
 
-            this.view.show();
+            this.view.Show();
         }
 
         private void LoadAllProductLiST()

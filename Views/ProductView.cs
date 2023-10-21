@@ -85,11 +85,6 @@ namespace Supermarket__mvp.Views
             DgProduct.DataSource = productList;
         }
 
-        public void show()
-        {
-            throw new NotImplementedException();
-        }
-
         private static ProductView instance;
 
         public static ProductView GetInstance(Form parentContainer)

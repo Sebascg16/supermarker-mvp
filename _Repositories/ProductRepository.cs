@@ -39,7 +39,7 @@ namespace Supermarket__mvp._Repositories
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "SELECT * FROM Product ORDER By Product_Id DESC";
+                command.CommandText = "SELECT * FROM Producto ORDER By Product_Id DESC";
                 using (var reader = command.ExecuteReader()) 
                 {
                   while (reader.Read())
