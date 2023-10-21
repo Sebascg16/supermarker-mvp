@@ -34,6 +34,60 @@ namespace Supermarket__mvp.Views
                     SearchEvent?.Invoke(this, EventArgs.Empty);
                 }
             };
+
+            btnNewP.Click += delegate
+            {
+                AddNewEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(tabProductList);
+                tabControl1.TabPages.Add(tabProductDetail);
+                tabProductDetail.Text = "Add New Product";
+
+            };
+
+            BtnEditP.Click += delegate
+            {
+                EditEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(tabProductList);
+                tabControl1.TabPages.Add(tabProductDetail);
+                tabProductDetail.Text = "Edit Product";
+            };
+
+            BtnSaveP.Click += delegate
+            {
+                SaveEvent?.Invoke(this, EventArgs.Empty);
+
+                if (isSuccessful)
+                {
+                    tabControl1.TabPages.Remove(tabProductDetail);
+                    tabControl1.TabPages.Add(tabProductList);
+                }
+                MessageBox.Show(Message);
+            };
+
+            BtnCancelP.Click += delegate
+            {
+                CancelEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(tabProductDetail);
+                tabControl1.TabPages.Add(tabProductList);
+            };
+
+            BtnDeleteP.Click += delegate
+            {
+                var result = MessageBox.Show(
+                    "Are you sure you want to delete the selected Product",
+                    "Warning",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    DeleteEvent?.Invoke(this, EventArgs.Empty);
+                    MessageBox.Show(Message);
+                }
+            };
+
         }
 
         public string ProductId

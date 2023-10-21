@@ -25,10 +25,8 @@ namespace Supermarket__mvp.Presenters.Common
                     {
                         errorMessage += item.ErrorMessage + "\n";
                     }
-                    throw new Exception(errorMessage);
+                   
                 }
-
-
         }   
     }
 }
