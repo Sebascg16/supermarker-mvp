@@ -45,5 +45,12 @@ namespace Supermarket__mvp.Presenters
             new PayModePresenter(view, reposity);
         }
 
+        private void ShowProviderView(object? sender, EventArgs e)
+        {
+            IProviderView view = ProviderView.GetInstance((MainView)mainView);
+            IProviderRepository repository = new ProviderRepository(sqlConnectionString);
+            new ProviderPresenter(view, repository);
+        }
+
     }
 }

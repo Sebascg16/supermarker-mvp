@@ -93,5 +93,25 @@ namespace Supermarket__mvp.Views
         {
 
         }
+
+        private static ProviderView instance;
+
+        public static ProviderView GetInstance(MainView mainView)
+        {
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new ProviderView();
+            }
+            else
+            {
+                if (instance.WindowState == FormWindowState.Minimized)
+                {
+                    instance.WindowState = FormWindowState.Normal;
+                }
+                instance.BringToFront();
+            }
+            return instance;
+        }
+
     }
 }

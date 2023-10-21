@@ -11,6 +11,7 @@ namespace Supermarket__mvp.Views
         event EventHandler ShowPayModeView;
         event EventHandler ShowProductView;
         event EventHandler ShowViewCategorie;
+        event EventHandler ShowProviderView;
         
     
 
