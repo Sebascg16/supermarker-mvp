@@ -48,6 +48,8 @@
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
+            BtnSavePr = new Button();
+            BtnCancelPr = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabControl1.SuspendLayout();
@@ -201,6 +203,8 @@
             // 
             // tabPageProviderDetail
             // 
+            tabPageProviderDetail.Controls.Add(BtnCancelPr);
+            tabPageProviderDetail.Controls.Add(BtnSavePr);
             tabPageProviderDetail.Controls.Add(TxtProviderObservation);
             tabPageProviderDetail.Controls.Add(TxtProviderName);
             tabPageProviderDetail.Controls.Add(TxtProvidId);
@@ -214,19 +218,21 @@
             tabPageProviderDetail.TabIndex = 1;
             tabPageProviderDetail.Text = "Provider Detail";
             tabPageProviderDetail.UseVisualStyleBackColor = true;
+            tabPageProviderDetail.Click += tabPageProviderDetail_Click;
             // 
             // TxtProviderObservation
             // 
-            TxtProviderObservation.Location = new Point(21, 177);
+            TxtProviderObservation.Location = new Point(21, 156);
             TxtProviderObservation.Multiline = true;
             TxtProviderObservation.Name = "TxtProviderObservation";
             TxtProviderObservation.PlaceholderText = "Provider Observation";
-            TxtProviderObservation.Size = new Size(278, 94);
+            TxtProviderObservation.Size = new Size(278, 86);
             TxtProviderObservation.TabIndex = 5;
+            TxtProviderObservation.TextChanged += TxtProviderObservation_TextChanged;
             // 
             // TxtProviderName
             // 
-            TxtProviderName.Location = new Point(21, 101);
+            TxtProviderName.Location = new Point(21, 91);
             TxtProviderName.Name = "TxtProviderName";
             TxtProviderName.PlaceholderText = "Provider Name";
             TxtProviderName.Size = new Size(278, 23);
@@ -244,7 +250,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(21, 149);
+            label5.Location = new Point(21, 127);
             label5.Name = "label5";
             label5.Size = new Size(126, 15);
             label5.TabIndex = 2;
@@ -254,11 +260,12 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(21, 83);
+            label4.Location = new Point(21, 73);
             label4.Name = "label4";
             label4.Size = new Size(91, 15);
             label4.TabIndex = 1;
             label4.Text = "Provider Name";
+            label4.Click += label4_Click;
             // 
             // label3
             // 
@@ -269,6 +276,24 @@
             label3.Size = new Size(71, 15);
             label3.TabIndex = 0;
             label3.Text = "Provider ID";
+            // 
+            // BtnSavePr
+            // 
+            BtnSavePr.Image = Properties.Resources.save;
+            BtnSavePr.Location = new Point(66, 259);
+            BtnSavePr.Name = "BtnSavePr";
+            BtnSavePr.Size = new Size(55, 45);
+            BtnSavePr.TabIndex = 6;
+            BtnSavePr.UseVisualStyleBackColor = true;
+            // 
+            // BtnCancelPr
+            // 
+            BtnCancelPr.Image = Properties.Resources.cancel;
+            BtnCancelPr.Location = new Point(158, 259);
+            BtnCancelPr.Name = "BtnCancelPr";
+            BtnCancelPr.Size = new Size(62, 45);
+            BtnCancelPr.TabIndex = 7;
+            BtnCancelPr.UseVisualStyleBackColor = true;
             // 
             // ProviderView
             // 
@@ -314,5 +339,7 @@
         private Label label5;
         private Label label4;
         private Label label3;
+        private Button BtnCancelPr;
+        private Button BtnSavePr;
     }
 }

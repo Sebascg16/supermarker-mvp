@@ -36,6 +36,58 @@ namespace Supermarket__mvp.Views
                     SearchEvent?.Invoke(this, EventArgs.Empty);
                 }
             };
+
+            BtnNewPr.Click += delegate { 
+                AddNewEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(tabPageProviderList);
+                tabControl1.TabPages.Add(tabPageProviderDetail);
+                tabPageProviderDetail.Text = "Add New Provider";
+            };
+
+            BtnEditPr.Click += delegate { 
+                EditEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(tabPageProviderList);
+                tabControl1.TabPages.Add(tabPageProviderDetail);
+                tabPageProviderDetail.Text = "Edit Provider";
+            };
+
+            BtnDeletePr.Click += delegate { 
+                DeleteEvent?.Invoke(this, EventArgs.Empty);
+
+                var result = MessageBox.Show(
+         "Are you sure you want to delete the selected Provider",
+         "Warning",
+         MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    DeleteEvent?.Invoke(this, EventArgs.Empty);
+                    MessageBox.Show(Message);
+                }
+            };
+
+            BtnSavePr.Click += delegate { 
+                SaveEvent?.Invoke(this, EventArgs.Empty); };
+
+            SaveEvent?.Invoke(this, EventArgs.Empty);
+
+            if (isSuccessful)
+            {
+                tabControl1.TabPages.Remove(tabPageProviderDetail);
+                tabControl1.TabPages.Add(tabPageProviderList);
+            }
+            MessageBox.Show(Message);
+
+            BtnCancelPr.Click += delegate {
+                CancelEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(tabPageProviderDetail);
+                tabControl1.TabPages.Add(tabPageProviderList);
+            };
+
+
         }
 
         public string ProviderId
@@ -118,5 +170,19 @@ namespace Supermarket__mvp.Views
             return instance;
         }
 
+        private void tabPageProviderDetail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtProviderObservation_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

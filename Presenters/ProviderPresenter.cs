@@ -43,27 +43,79 @@ namespace Supermarket__mvp.Presenters
 
         private void CancelAction(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            CleanViewFields();
         }
 
         private void SaveProvider(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var provider = new ProviderModel();
+            provider.Id = Convert.ToInt32(view.ProviderId);
+            provider.Name = view.ProviderName;
+            provider.Observation = view.ProviderObservation;
+
+            try
+            {
+                new Common.ModelDataValidation().validate(provider);
+                if (view.IsEdit)
+                {
+                    repository.Edit(provider);
+                    view.Message = "Provider edited successfuly";
+                }
+                else
+                {
+                    repository.Add(provider);
+                    view.Message = "Provider added successfuly";
+                }
+                view.IsSuccesful = true;
+                LoadAllProviderList();
+                CleanViewFields();
+            }
+            catch (Exception ex)
+            {
+                view.IsSuccesful = false;
+                view.Message = ex.Message;
+            }
+        }
+
+        private void CleanViewFields()
+        {
+            view.ProviderId = "0";
+            view.ProviderName = "";
+            view.ProviderObservation = "";
         }
 
         private void DeleteSelectedProvider(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var provider = (ProviderModel)providerBindingSource.Current;
+
+                repository.Delete(provider.Id);
+                view.IsSuccesful = true;
+                view.Message = "Provider deleted successfully";
+                LoadAllProviderList();
+            }
+            catch (Exception ex)
+            {
+                view.IsSuccesful = false;
+                view.Message = "An error ocurred, could ot delete provider";
+            }
         }
 
         private void LoadSelectProviderToEdit(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var provider = (ProviderModel)providerBindingSource.Current;
+
+            view.ProviderId = provider.Id.ToString();
+            view.ProviderName = provider.Name;
+            view.ProviderObservation = provider.Observation;
+
+            view.IsEdit = true;
         }
 
         private void AddNewProvider(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            view.IsEdit = false;
         }
 
         private void SearchProvider(object? sender, EventArgs e)
