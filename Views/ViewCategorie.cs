@@ -68,6 +68,8 @@ namespace Supermarket__mvp.Views
             AssociateAndRaiseViewEvents();
 
             tabControl1.TabPages.Remove(tabPageCategorieDetail);
+            BtnCloseC.Click += delegate { this.Close(); };
+
         }
 
         private void AssociateAndRaiseViewEvents()

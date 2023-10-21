@@ -118,6 +118,7 @@
             // 
             // BtnClosePr
             // 
+            BtnClosePr.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BtnClosePr.Image = Properties.Resources.cerrar;
             BtnClosePr.Location = new Point(414, 242);
             BtnClosePr.Name = "BtnClosePr";
@@ -127,6 +128,7 @@
             // 
             // BtnDeletePr
             // 
+            BtnDeletePr.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BtnDeletePr.Image = Properties.Resources.delete;
             BtnDeletePr.Location = new Point(414, 190);
             BtnDeletePr.Name = "BtnDeletePr";
@@ -136,6 +138,7 @@
             // 
             // BtnEditPr
             // 
+            BtnEditPr.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BtnEditPr.Image = Properties.Resources.edit;
             BtnEditPr.Location = new Point(414, 130);
             BtnEditPr.Name = "BtnEditPr";
@@ -145,6 +148,7 @@
             // 
             // BtnNewPr
             // 
+            BtnNewPr.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BtnNewPr.Image = Properties.Resources._new;
             BtnNewPr.Location = new Point(414, 80);
             BtnNewPr.Name = "BtnNewPr";
@@ -156,6 +160,7 @@
             // 
             DgProvider.AllowUserToAddRows = false;
             DgProvider.AllowUserToDeleteRows = false;
+            DgProvider.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             DgProvider.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DgProvider.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DgProvider.Location = new Point(19, 80);
@@ -167,6 +172,7 @@
             // 
             // BtnSearchPr
             // 
+            BtnSearchPr.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BtnSearchPr.Image = Properties.Resources.search_small;
             BtnSearchPr.Location = new Point(396, 16);
             BtnSearchPr.Name = "BtnSearchPr";
@@ -176,6 +182,7 @@
             // 
             // TxtSearchPr
             // 
+            TxtSearchPr.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TxtSearchPr.Location = new Point(19, 34);
             TxtSearchPr.Name = "TxtSearchPr";
             TxtSearchPr.PlaceholderText = "Data to Search";
@@ -272,6 +279,7 @@
             Controls.Add(panel1);
             Name = "ProviderView";
             Text = "ProviderView";
+            WindowState = FormWindowState.Maximized;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

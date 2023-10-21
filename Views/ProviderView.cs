@@ -22,6 +22,7 @@ namespace Supermarket__mvp.Views
             AssociateAndRaiseViewEvents();
 
             tabControl1.TabPages.Remove(tabPageProviderDetail);
+            BtnClosePr.Click += delegate { this.Close(); };
         }
 
         private void AssociateAndRaiseViewEvents()
@@ -96,11 +97,15 @@ namespace Supermarket__mvp.Views
 
         private static ProviderView instance;
 
-        public static ProviderView GetInstance(MainView mainView)
+        public static ProviderView GetInstance(Form parentContainer)
         {
             if (instance == null || instance.IsDisposed)
             {
                 instance = new ProviderView();
+                instance.MdiParent = parentContainer;
+
+                instance.FormBorderStyle = FormBorderStyle.None;
+                instance.Dock = DockStyle.Fill;
             }
             else
             {

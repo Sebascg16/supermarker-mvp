@@ -21,6 +21,8 @@ namespace Supermarket__mvp.Views
             AssociateAndRaiseViewEvents();
 
             tabControl1.TabPages.Remove(tabProductDetail);
+            btnCloseP.Click += delegate { this.Close(); };
+
         }
 
         private void AssociateAndRaiseViewEvents()
@@ -142,7 +144,6 @@ namespace Supermarket__mvp.Views
         private static ProductView instance;
 
         public static ProductView GetInstance(Form parentContainer)
-
         {
             if (instance == null || instance.IsDisposed)
             {

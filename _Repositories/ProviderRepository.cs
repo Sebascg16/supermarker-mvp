@@ -35,7 +35,7 @@ namespace Supermarket__mvp._Repositories
         public IEnumerable<ProviderModel> GetAll()
         {
             var providerList = new List<ProviderModel>();
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = new SqlConnection("Data Source=DESKTOP-012JM51;Initial Catalog=Supermarker;Integrated Security=True;TrustServerCertificate=True;"))
             using (var command = new SqlCommand())
             {
                 connection.Open();
