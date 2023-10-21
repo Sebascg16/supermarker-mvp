@@ -187,7 +187,7 @@
             // 
             // txtSearch
             // 
-            txtSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            txtSearch.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtSearch.Location = new Point(27, 30);
             txtSearch.Name = "txtSearch";
             txtSearch.PlaceholderText = "Data to Search";

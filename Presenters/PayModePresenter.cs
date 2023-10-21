@@ -55,7 +55,7 @@ namespace Supermarket__mvp.Presenters
         {
             var PayMode = new PayModeModel(); ;
 
-            PayMode.Id = Convert.ToInt32(view.PayModeId);
+            //PayMode.Id = Convert.ToInt32(view.PayModeId);
             PayMode.Name = view.PayModeName;
             PayMode.Observation = view.PayModeObservation;
 

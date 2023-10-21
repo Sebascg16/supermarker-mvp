@@ -51,6 +51,7 @@ namespace Supermarket__mvp.Presenters
         private void SaveProduct(object? sender, EventArgs e)
         {
             var product = new ProductModel();
+
             product.Id = Convert.ToInt32(view.ProductId);
             product.Name = view.ProductName;
             product.Observation = view.ProductObservation;
